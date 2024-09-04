@@ -1,34 +1,26 @@
 def set_theory(abc, ac, cde):
-    print("abc: {}\n ac: {}\ncde: {}".format(sorted(abc), sorted(ac), sorted(cde)))
-    print("Union:                abc | cde --> {}".format(sorted(abc | cde)))
-    print("Intersection:         abc & cde --> {}".format(sorted(abc & cde)))
-    print("Set difference:       abc - cde --> {}".format(sorted(abc - cde)))
-    print("Symmetric difference: abc ^ cde --> {}".format(sorted(abc ^ cde)))
+    print(f"abc: {sorted(abc)}\n ac: {sorted(ac)}\ncde: {sorted(cde)}")
+    print(f"Union:                abc | cde --> {sorted(abc | cde)}")
+    print(f"Intersection:         abc & cde --> {sorted(abc & cde)}")
+    print(f"Set difference:       abc - cde --> {sorted(abc - cde)}")
+    print(f"Symmetric difference: abc ^ cde --> {sorted(abc ^ cde)}")
     print(
-        "Is suubset:           ac <= abc, abc <= abc --> {}, {}".format(
-            ac <= abc, abc <= abc
-        )
-    )  # noqa
+        "Is subset:            ac <= abc, abc <= abc --> " f"{ac <= abc}, {abc <= abc}"  # noqa: PLR0124
+    )
     print(
-        "Is superset:          abc >= ac, abc >= abc --> {}, {}".format(
-            abc >= ac, abc >= abc
-        )
-    )  # noqa
+        "Is superset:          abc >= ac, abc >= abc --> " f"{abc >= ac}, {abc >= abc}"  # noqa: PLR0124
+    )
     print(
-        "Is proper suubset:    ac  < abc, abc <  abc --> {}, {}".format(
-            ac < abc, abc < abc
-        )
-    )  # noqa
+        "Is proper subset:     ac  < abc, abc <  abc --> " f"{ac < abc}, {abc < abc}"  # noqa: PLR0124
+    )
     print(
-        "Is proper superset:   abc >  ac, abc >  abc --> {}, {}".format(
-            abc > ac, abc > abc
-        )
-    )  # noqa
+        "Is proper superset:   abc >  ac, abc >  abc --> " f"{abc > ac}, {abc > abc}",  # noqa: PLR0124
+    )
 
 
 if __name__ == "__main__":
     # --> ['a', 'b', c'] with duplicate c's will be thrown away
-    abc = {"a", "b", "c", "c", "c"}
+    abc = {"a", "b", "c", "c", "c"}  # noqa: B033
     ac = abc - {"b"}  # --> ['a', 'c'] with 'b' removed
     cde = {"c", "d", "e"}
     set_theory(abc, ac, cde)
@@ -41,8 +33,8 @@ Union:                abc | cde --> ['a', 'b', 'c', 'd', 'e']
 Intersection:         abc & cde --> ['c']
 Set difference:       abc - cde --> ['a', 'b']
 Symmetric difference: abc ^ cde --> ['a', 'b', 'd', 'e']
-Is suubset:           ac <= abc, abc <= abc --> True, True
+Is subset:            ac <= abc, abc <= abc --> True, True
 Is superset:          abc >= ac, abc >= abc --> True, True
-Is proper suubset:    ac  < abc, abc <  abc --> True, False
+Is proper subset:     ac  < abc, abc <  abc --> True, False
 Is proper superset:   abc >  ac, abc >  abc --> True, False
 """
